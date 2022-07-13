@@ -1,0 +1,4 @@
+**/venv
+.vscode
+# uploads # lo borramos luego
+__pycache__
