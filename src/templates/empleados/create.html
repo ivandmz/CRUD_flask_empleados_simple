@@ -1,14 +1,27 @@
 {% include 'header.html' %}
 <form method="POST" action="/store" enctype="multipart/form-data">
-    <label for="txtNombre">Nombre:</label>
-    <input type="text" name="txtNombre" id="txtNombre">
-    <br>
-    <label for="txtCorreo">Correo:</label>
-    <input type="email" name="txtCorreo" id="txtCorreo">
-    <br>
-    <label for="txtFoto">Foto:</label>
-    <input type="file" name="txtFoto" id="txtFoto">
-    <br>
-    <input type="submit" value="Agregar nuevo empleado">
+    <div class="card">
+        <div class="card-header">Alta empleado</div>
+        <div class="card-body">
+            <p class="card-text">
+                <div class="form-group">
+                    <label for="txtNombre">Nombre:</label>
+                    <input type="text" name="txtNombre" id="txtNombre">
+                </div>
+                <div class="form-group">
+                    <label for="txtCorreo">Correo:</label>
+                    <input type="email" name="txtCorreo" id="txtCorreo">
+                </div>
+                <div class="form-group">
+                    <label for="txtFoto">Foto:</label>
+                    <input type="file" name="txtFoto" id="txtFoto">
+                </div>
+                <div class="form-group">
+                    <input class="btn btn-success" type="submit" value="Agregar nuevo empleado">
+                </div>
+
+            </p>
+        </div>
+    </div>
 </form>
 {% include 'footer.html' %}

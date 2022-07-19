@@ -1,7 +1,6 @@
 {% include 'header.html' %}
-<h1>Hola Flask</h1>
-<table>
-    <thead>
+<table class="table table-dark">
+    <thead class="thead-dark">
         <tr>
             <th>#</th>
             <th>Foto</th>
@@ -13,13 +12,15 @@
         {% for empleado in empleados %}
         <tr>
             <td>{{empleado[0]}}</td>
-            <td>{{empleado[3]}}</td>
+            <td>
+                <img width="100" src="fotodeusuario/{{empleado[3]}}" alt="foto de perfil"> <!-- esto sirve para ocultar donde tengo mis fotos. el navegador mapea esto y le da al usuario esta dire y no la real. -->
+            </td>
             <td>{{empleado[1]}}</td>
             <td>{{empleado[2]}}</td>
             <td>
-                <a href="/modify/{{empleado[0]}}">Editar</a>
+                <a class="btn btn-warning" href="/modify/{{empleado[0]}}">Editar</a>
                 |
-                <a href="/delete/{{empleado[0]}}">Borrar</a>
+                <a class="btn btn-danger" href="/delete/{{empleado[0]}}">Borrar</a>
             </td>
         </tr>
         {% endfor %}
