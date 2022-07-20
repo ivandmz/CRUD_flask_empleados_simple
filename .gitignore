@@ -1,4 +1,5 @@
 **/venv
 .vscode
-# uploads # lo borramos luego
+uploads
+# !uploads/.keep # con esto no me ignora lo que le ponga. pero ya habia subido el keep por eso ahora no lo hago
 __pycache__
