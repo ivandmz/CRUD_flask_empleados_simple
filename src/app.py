@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import render_template, request, redirect, url_for, send_from_directory
+from flask import render_template, request, redirect, url_for, send_from_directory, flash
 from pymysql.cursors import DictCursor
 from flaskext.mysql import MySQL
 from datetime import datetime
@@ -63,6 +63,11 @@ def alta_empleado():
         _nombre = request.form['txtNombre']  # lo recibe del form
         _correo = request.form['txtCorreo']
         _foto = request.files['txtFoto']# lo recibe como archivo, un stream de datos
+
+        #validaciones
+        if _nombre == '' or _correo == '' or _foto.filename =='':
+            flash("Nombre, correo y foto son obligatorios")
+            return redirect(url_for(alta_empleado))
 
         now = datetime.now()
         tiempo = now.strftime("%Y%H%M%S")
