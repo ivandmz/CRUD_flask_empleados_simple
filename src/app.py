@@ -1,6 +1,6 @@
-from colorama import Cursor
 from flask import Flask
 from flask import render_template, request, redirect, url_for, send_from_directory
+from pymysql.cursors import DictCursor
 from flaskext.mysql import MySQL
 from datetime import datetime
 import os
@@ -19,7 +19,7 @@ app.config['UPLOADS'] = UPLOADS # guardamos la ruta como un valor en la app
 mysql.init_app(app)
 
 conn=mysql.connect() # como tengo estos aca arriba puedo borrar los de los metodos debajo. (pero solo los voy a comentar)
-cursor=conn.cursor()
+cursor=conn.cursor(cursor=DictCursor) # ahora me pasa los datos como un dict
 
 def queryMySql(query,data = None, tipoDeRetorno = 'none'):
     if data != None:
