@@ -20,8 +20,7 @@ mysql.init_app(app)
 
 # como tengo estos aca arriba puedo borrar los de los metodos debajo. (pero solo los voy a comentar)
 conn = mysql.connect()
-# me trae los datos de la DB como dict {clave:valor} {'id':'1','nombre':'ivan',...}
-cursor = conn.cursor(cursor=DictCursor)
+cursor = conn.cursor(cursor=DictCursor) # me trae los datos de la DB como dict {clave:valor} {'id':'1','nombre':'ivan',...}
 
 
 def queryMySql(query, data=None, tipoDeRetorno='none'):
@@ -32,14 +31,11 @@ def queryMySql(query, data=None, tipoDeRetorno='none'):
 
     if tipoDeRetorno == "one":
         registro = cursor.fetchone()
-        conn.commit()
-        return registro  # no es buena practica usar el return dentro y mas de una vez
-    elif tipoDeRetorno == "all":
-        registro = cursor.fetchall()
-        conn.commit()
-        return registro  # no es buena practica usar el return dentro y mas de una vez
     else:
-        conn.commit()
+        registro = cursor.fetchall()
+    if query.casefold().find("select") != -1: #casefold convierte todo el sql en minusculas, y find busca si en el query esta select
+        conn.commit() # entonces commitea
+    return registro # siempre devuelve algo, a veces vacio (select) a veces se pierde (si no lo guardo en una var)
 
 
 # esto sirve para ocultar donde tengo mis fotos. el navegador mapea esto y le da al usuario esta dire y no la real.
