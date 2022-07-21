@@ -67,8 +67,8 @@ def alta_empleado():
 
         #validaciones
         if _nombre == '' or _correo == '' or _foto.filename =='':
-            flash("Nombre, correo y foto son obligatorios")
-            return redirect(url_for(alta_empleado))
+            flash("Nombre, correo y foto son obligatorios.")
+            return redirect(url_for('alta_empleado'))
 
         now = datetime.now()
         tiempo = now.strftime("%Y%H%M%S")
@@ -145,6 +145,10 @@ def modif_empleado(id):
         _correo = request.form['txtCorreo']
         _foto = request.files['txtFoto']
         id = request.form['txtId']
+
+        if _nombre == '' or _correo == '':
+            flash("No puede enviar campos vacíos.")
+            return redirect(url_for('modif_empleado', id=id))
 
         if _foto.filename != '':
             now = datetime.now()
