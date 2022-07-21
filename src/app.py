@@ -12,6 +12,7 @@ app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 app.config['MYSQL_DATABASE_USER'] = 'root'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
 app.config['MYSQL_DATABASE_DB'] = 'empleados'
+app.config['SECRET_KEY'] = 'codoacodoalgohasheado' # no va aca porque alguien q acceda al codigo la tendría. y tbn sería algo mas hasheado..
 
 UPLOADS = os.path.join('uploads')  # ('src/uploads')
 app.config['UPLOADS'] = UPLOADS  # guardamos la ruta como un valor en la app
