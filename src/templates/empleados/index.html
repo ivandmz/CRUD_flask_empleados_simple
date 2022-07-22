@@ -19,7 +19,8 @@
             <td>{{empleado.correo}}</td>
             <td>
                 <a class="btn btn-warning" href="/empleado/modificar/{{empleado.id}}">Editar</a>
-                <a class="btn btn-danger" href="/empleado/delete/{{empleado.id}}">Borrar</a>
+                <a id="btnBorrar" class="btn btn-danger" href="/empleado/delete/{{empleado.id}}">Borrar</a> 
+                <!-- el id es para que lo capte el js -->
             </td>
         </tr>
         {% endfor %}
