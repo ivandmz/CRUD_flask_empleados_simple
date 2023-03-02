@@ -1,6 +1,11 @@
-# Sistema Empleados
+# CRUD "Sistema Empleados"
 
-## Requerimientos
+## About this repo
+
+A simple CRUD made with Flask in Full Stack (Python) course as a final exercise integrating the topics seen.
+
+
+## Requeriments
 
 cffi==1.15.1
 click==8.1.3
@@ -14,7 +19,3 @@ MarkupSafe==2.1.1
 pycparser==2.21
 PyMySQL==1.0.2
 Werkzeug==2.1.2
-
-## Instalación
-
-_A completar._
